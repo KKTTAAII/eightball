@@ -1,0 +1,17 @@
+.EightBall-ball {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15% auto;
+
+}
+
+.EightBall-msg {
+    width: 200px;
+    z-index: 2;
+    color: white;
+    text-align: center;
+}
