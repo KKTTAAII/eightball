@@ -1,3 +1,11 @@
+.EightBall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 200px;
+}
+
 .EightBall-ball {
     border-radius: 50%;
     width: 200px;
@@ -5,13 +13,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 15% auto;
-
 }
 
 .EightBall-msg {
     width: 200px;
-    z-index: 2;
+    z-index: 1;
     color: white;
     text-align: center;
+}
+
+.EightBall-reset-button {
+    margin-top: 20px;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(71, 71, 240);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.EightBall-color-count-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.EightBall-color-count-red, .EightBall-color-count-green, .EightBall-color-count-goldenrod {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.EightBall-color-count-red {
+    background-color: red;
+}
+
+.EightBall-color-count-green {
+    background-color: green;
+}
+
+.EightBall-color-count-goldenrod {
+    background-color: goldenrod;
 }
