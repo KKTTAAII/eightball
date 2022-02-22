@@ -1,30 +1,35 @@
-import React, { useState, setState } from "react";
+import React, { useState } from "react";
 import "./EightBall.css";
 
 const EightBall = ({ answers }) => {
-  const random = Math.floor(Math.random() * answers.length);
+  const randomNum = Math.floor(Math.random() * answers.length);
   const [greenCount, getGreenCount] = useState(0);
   const [redCount, getRedCount] = useState(0);
   const [goldenrodCount, getGoldenrodCount] = useState(0);
   const [msg, getMsg] = useState("Think of a question");
   const [color, getColor] = useState("black");
   const countColor = color =>
-    color === "green" ? getGreenCount(greenCount + 1)
-    : color === "red" ? getRedCount(redCount + 1)
-    : color === "goldenrod" ? getGoldenrodCount(goldenrodCount + 1)
-    : null;
-  const throwBall = () => (
-    getMsg(answers[random]["msg"]),
-    getColor(answers[random]["color"]),
-    countColor(color)
-  );
-  const restart = () => {
-    getMsg("Think of a question");
-    getColor("black");
-    getGreenCount(0);
-    getRedCount(0);
-    getGoldenrodCount(0);
+    color === "green"
+      ? getGreenCount(greenCount + 1)
+      : color === "red"
+      ? getRedCount(redCount + 1)
+      : color === "goldenrod"
+      ? getGoldenrodCount(goldenrodCount + 1)
+      : null;
+  const throwBall = () => {
+    const randomAnswer = answers[randomNum];
+    const { msg, color } = randomAnswer;
+    getMsg(msg);
+    getColor(color);
+    countColor(color);
   };
+  const restart = () => (
+    getMsg("Think of a question"),
+    getColor("black"),
+    getGreenCount(0),
+    getRedCount(0),
+    getGoldenrodCount(0)
+  );
   return (
     <div className="EightBall">
       <div
@@ -32,9 +37,9 @@ const EightBall = ({ answers }) => {
         className="EightBall-ball"
         style={{ backgroundColor: color }}
       >
-        <p className="EightBall-msg">{msg}</p>
+        <span className="EightBall-msg">{msg}</span>
       </div>
-      <button onClick={restart} className="EightBall-reset-button">
+      <button onClick={restart} className="EightBall-restart-button">
         Restart
       </button>
       <div className="EightBall-color-count-container">
